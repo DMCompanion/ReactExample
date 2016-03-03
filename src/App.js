@@ -49,6 +49,9 @@ export default class App extends Component {
   render() {
     return (
       <div>
+
+        <h1>THE RESISTANCE</h1>
+
         <select onChange={ (event) => this.selectNumberOfPlayers(event.target.value)}
         >
           <option value="5">5</option>
