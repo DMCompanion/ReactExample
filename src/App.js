@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Setup from './setup';
 import TeamSize from './teamSize';
+import GameBoard from './gameBoard';
 
 export default class App extends Component {
 
@@ -129,11 +130,6 @@ export default class App extends Component {
           <TeamSize teamSize={this.state.teamSize}></TeamSize>
 
           <button className="myButton" onClick={this.startGame}>Start Game</button>
-          {
-            this.state.players.map( (player) => {
-              return <li>{player.role}</li>
-            })
-          }
         </div>
       </div>
     );
