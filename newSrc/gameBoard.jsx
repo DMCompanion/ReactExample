@@ -17,7 +17,6 @@ export default class App extends Component {
               {
                 this.props.teamSize[1]
               }
-
             </div>
             <div className={this.props.passes[0] + " fail"}>
               1

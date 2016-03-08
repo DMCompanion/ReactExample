@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Setup from './setup';
 import TeamSize from './teamSize';
 import GameBoard from './gameBoard';
-import Card from './playerCard';
 
 export default class App extends Component {
 
@@ -16,7 +15,7 @@ export default class App extends Component {
         7: {resistance: 4, spies: 3},
         8: {resistance: 5, spies: 3},
         9: {resistance: 6, spies: 3},
-        10: {resistance: 6, spies: 4}
+        10: {resistance: 7, spies: 4}
       },
 
       missionTeamSize: {
@@ -88,10 +87,13 @@ export default class App extends Component {
     for (var l = 0; l < players.length; l++) {
       players[l].role = roles[l];
     }
+    console.log(players);
 
     this.setState({
       players: players
     });
+
+    console.log(this.state.players);
   }
 
   shuffle(array) {
@@ -113,6 +115,7 @@ export default class App extends Component {
   }
 
   resistance() {
+    console.log('The REBELS won this round');
     var winners = this.state.winners;
     var round = this.state.round;
 
@@ -133,6 +136,7 @@ export default class App extends Component {
   }
 
   spies() {
+    console.log('The EMPIRE won this round');
     var winners = this.state.winners;
     var round = this.state.round;
 
@@ -153,6 +157,7 @@ export default class App extends Component {
   }
 
   neither() {
+    console.log('Neither Team won this round');
     var passes = this.state.passes;
     var pass = this.state.pass;
     var round = this.state.round;
@@ -187,6 +192,8 @@ export default class App extends Component {
   }
 
   checkForWinner() {
+    console.log('Checking For Winner');
+
     var winners = this.state.winners;
     var round = this.state.round;
     var resistance = 0;
@@ -258,7 +265,6 @@ export default class App extends Component {
         </div>
         <div className="playArea">
           <GameBoard teamSize={this.state.teamSize} winners={this.state.winners} passes={this.state.passes} resistance={this.resistance} spies={this.spies} neither={this.neither}></GameBoard>
-          <Card></Card>
         </div>
       </div>
     );
